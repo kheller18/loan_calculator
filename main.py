@@ -1,7 +1,6 @@
+# This script calculates loan basics and automates certain functions to output if taking a specified loan is smart
 import csv
 from pathlib import Path
-
-# This script calculates loan basics
 
 # Part 1
   # Basic loan function to calculate length, total and average loan
@@ -20,7 +19,8 @@ def loan_basics (loans):
 loan_costs = [500, 600, 200, 1000, 450]
 loan_basics(loan_costs)
 
-# Part 2,3
+# Parts 2,3
+  #Function that takes in a loan and prints future value and remaining months. Then calculates present value and returns to the user if the loan is worth it or not.
 def present_value (loan):
   future_value = loan.get("future_value")
   remaining_months = loan.get("remaining_months")
@@ -42,9 +42,11 @@ new_loan = {
   "repayment_interval": "bullet",
   "future_value": 1000
 }
+#function call for calculating present value
 present_value(new_loan)
 
 #Part 4
+  #Function to calculate which loans are inexpensive and then print them out.
 def inexpensive_loans (loans):
   inexpensive_loans = []
   for loan in loans:
@@ -83,9 +85,11 @@ loans = [
     },
 ]
 
+#Function call for parsing through which loans are inexpensive
 inexp_loans_output = inexpensive_loans(loans)
 
 #Part 5
+  #Function to take in inexpensive loan data, print headers and write inexpensive loan data to CSV file.
 def csvWrite(loans):
   header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
   output_path = Path("inexpensive_loans.csv")
@@ -95,5 +99,6 @@ def csvWrite(loans):
     csvwriter.writerow(header)
     for loan in loans:
       csvwriter.writerow(loan.values())
+  return
 
 csvWrite(inexp_loans_output)
