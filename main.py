@@ -42,6 +42,7 @@ new_loan = {
   "repayment_interval": "bullet",
   "future_value": 1000
 }
+
 #function call for calculating present value
 present_value(new_loan)
 
