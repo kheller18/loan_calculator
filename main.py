@@ -13,7 +13,7 @@ def loan_basics (loans):
   print(f"The number of loans is {length}.")
   print(f"The sum of loans is ${total}.")
   print(f"The average loan is ${average_loan}.")
-  return
+  return average_loan
 
 # Input loan data and function call
 loan_costs = [500, 600, 200, 1000, 450]
